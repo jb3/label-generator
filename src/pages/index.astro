@@ -5,86 +5,86 @@ import LabelGenerator from "../components/LabelGenerator.tsx";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Label Generator</title>
-	</head>
-	<body class="flex items-center justify-center min-h-screen">
-		<div
-			class="bg-gray-900 shadow-lg text-white p-6 rounded-lg shadow-lg min-w-[700px] custom-glow"
-		>
-			<h1 class="text-4xl font-semibold mb-8">Label Generator</h1>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Label Generator</title>
+  </head>
+  <body class="flex items-center justify-center min-h-screen">
+    <div
+      class="bg-gray-900 shadow-lg text-white p-6 rounded-lg shadow-lg min-w-[700px] custom-glow"
+    >
+      <h1 class="text-4xl font-semibold mb-8">Label Generator</h1>
 
-			<LabelGenerator client:load client:only />
+      <LabelGenerator client:load client:only />
 
-			<button
-				data-print-button
-				class="mt-8 bg-gray-800 text-white py-2 px-4 rounded-lg"
-			>
-				Print
-			</button>
-		</div>
+      <button
+        data-print-button
+        class="mt-8 bg-gray-800 text-white py-2 px-4 rounded-lg"
+      >
+        Print
+      </button>
+    </div>
 
-		<style>
-			body,
-			html {
-				margin: 0;
-				padding: 0;
-				font-family: "Roboto", sans-serif;
-			}
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+      }
 
-			html {
-				height: 100%;
-			}
+      html {
+        height: 100%;
+      }
 
-			body {
-				background: linear-gradient(180deg, #000, #111);
-				color: white;
-			}
+      body {
+        background: linear-gradient(180deg, #000, #111);
+        color: white;
+      }
 
-			.custom-glow {
-				box-shadow: 0 0 15px 5px rgba(128, 90, 177, 0.1); /* Blue glow */
-			}
-		</style>
+      .custom-glow {
+        box-shadow: 0 0 15px 5px rgba(128, 90, 177, 0.1); /* Blue glow */
+      }
+    </style>
 
-		<style is:global>
-			@media print {
-				@page {
-					size: 4in 6in;
-					margin: 0;
-				}
+    <style is:global>
+      @media print {
+        @page {
+          size: 4in 6in;
+          margin: 0;
+        }
 
-				body {
-					background: white !important;
-					color: black !important;
-				}
+        body {
+          background: white !important;
+          color: black !important;
+        }
 
-				body * {
-					visibility: hidden;
-				}
+        body * {
+          visibility: hidden;
+        }
 
-				#label,
-				#label * {
-					visibility: visible;
-				}
+        #label,
+        #label * {
+          visibility: visible;
+        }
 
-				#label {
-					position: absolute;
-					left: 10px;
-					top: 10px;
-				}
-			}
-		</style>
-	</body>
+        #label {
+          position: absolute;
+          left: 10px;
+          top: 10px;
+        }
+      }
+    </style>
+  </body>
 </html>
 
 <script>
-	const button = document.querySelector("[data-print-button]");
+  const button = document.querySelector("[data-print-button]");
 
-	button!.addEventListener("click", () => {
-		window.print();
-	});
+  button!.addEventListener("click", () => {
+    window.print();
+  });
 </script>
