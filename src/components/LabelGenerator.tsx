@@ -38,8 +38,6 @@ const LabelGenerator = () => {
         bwipjs.toCanvas("barcode", {
           bcid: barcodeType,
           text: barcodeValue,
-          includetext: true,
-          textxalign: "center",
           ...parsedOpts
         });
         setGenerationError(null);
@@ -110,14 +108,15 @@ const LabelGenerator = () => {
         {
           barcodeValue ?
 
-            <div className="flex flex-col" id="label">
-              <p className="text-gray-700">Date: {todaysDate}</p>
+            <div id="label" className="flex flex-col items-center">
+              <p className="text-gray-700 font-mono">Date: {todaysDate}</p>
               <canvas id="barcode"></canvas>
+              <p className="text-gray-700 mt-2 font-mono">{barcodeValue}</p>
             </div>
             :
             <p className="text-gray-700">Enter some content to get started</p>
         }
-        <p className="text-red-400 mt-10 max-w-md text-center">{generationError}</p>
+        {generationError ? <p className="text-red-400 mt-10 max-w-md text-center">{generationError}</p> : null}
       </div>
     </div>
   </>;
