@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import bwipjs from "bwip-js";
 
 import barcodeTypes from '../utils/barcodeTypes';
 
@@ -35,12 +34,14 @@ const LabelGenerator = () => {
           parsedOpts = JSON.parse(extraOpts);
         }
 
-        bwipjs.toCanvas("barcode", {
-          bcid: barcodeType,
-          text: barcodeValue,
-          ...parsedOpts
-        });
-        setGenerationError(null);
+        import("bwip-js").then((bwipjs) => {
+          bwipjs.toCanvas("barcode", {
+            bcid: barcodeType,
+            text: barcodeValue,
+            ...parsedOpts
+          });
+          setGenerationError(null);
+        })
       } catch (e: any) {
         setGenerationError(e.message);
       }
