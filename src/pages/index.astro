@@ -20,12 +20,7 @@ import LabelGenerator from "../components/LabelGenerator.tsx";
 
       <LabelGenerator client:load client:only />
 
-      <button
-        data-print-button
-        class="mt-8 bg-gray-800 text-white py-2 px-4 rounded-lg"
-      >
-        Print
-      </button>
+      <PrintButton client:load />
     </div>
 
     <style>
