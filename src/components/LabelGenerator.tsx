@@ -41,6 +41,8 @@ const LabelGenerator = () => {
             ...parsedOpts
           });
           setGenerationError(null);
+        }).catch((error) => {
+          setGenerationError(error.message)
         })
       } catch (e: any) {
         setGenerationError(e.message);
