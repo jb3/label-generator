@@ -2,6 +2,7 @@
 import "@fontsource/roboto";
 
 import LabelGenerator from "../components/LabelGenerator.tsx";
+import PrintButton from "../components/PrintButton.tsx";
 ---
 
 <html lang="en">
@@ -22,6 +23,16 @@ import LabelGenerator from "../components/LabelGenerator.tsx";
 
       <PrintButton client:load />
     </div>
+
+    <footer class="absolute bottom-0 right-0 p-4 text-gray-400">
+      <a
+        href="https://github.com/jb3/label-generator"
+        class="text-gray-400 hover:text-white">Source Code</a
+      > &bull; Licensed under <a
+        href="https://choosealicense.com/licenses/agpl-3.0/"
+        class="text-gray-400 hover:text-white">AGPL-3.0</a
+      >
+    </footer>
 
     <style>
       body,
@@ -75,11 +86,3 @@ import LabelGenerator from "../components/LabelGenerator.tsx";
     </style>
   </body>
 </html>
-
-<script>
-  const button = document.querySelector("[data-print-button]");
-
-  button!.addEventListener("click", () => {
-    window.print();
-  });
-</script>
